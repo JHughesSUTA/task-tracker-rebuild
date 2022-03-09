@@ -1,27 +1,34 @@
 import { useState } from 'react'
 
-const AddTask = ({onAdd}) => {
+const AddTask = ({onAdd, handleDelete}) => {
   const [text, setText] = useState('')
   const [day, setDay] = useState('')
   const [reminder, setReminder] = useState(false)
 
+
   const onSubmit = (e) => {
     e.preventDefault()
+    console.log('clicked')
 
     if (!text) {
-      alert('Please Enter Text')
+      alert('PLEASE ENTER A TASK')
       return
     }
 
-    onAdd({ text, day, reminder })
+    handleDelete({text, day, reminder})
 
-    setText('')
-    setDay('')
-    setReminder(false)
+    try{
+      setText('')
+      setDay('')
+      setReminder(false)
+    } catch(error) {
+      console.log(error)
+    }
+    
   }
 
   return(
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} >
       <div className="form-control">
         <label>Task</label>
         <input type="text" value={text} onChange={e => setText(e.target.value)} />
@@ -32,9 +39,9 @@ const AddTask = ({onAdd}) => {
       </div>
       <div className="form-control form-control-check">
         <label>Set Reminder</label>
-        <input type="checkbox" checked={reminder} className="checkbox" onChange={e => setReminder(e.currentTarget.checked)}/>
+        <input type="checkbox" className="checkbox" checked={reminder} onChange={e => setReminder(e.currentTarget.checked)} />
       </div>
-      <input type="submit" value="save task" className="btn btn-block" />
+      <input type="submit" value="save text" className="btn btn-block" />
     </form>
   )
 }
