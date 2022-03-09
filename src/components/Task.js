@@ -1,9 +1,9 @@
 import { FaTimes } from 'react-icons/fa'
 
-const Task = ({text}) => {
+const Task = ({task, onDelete}) => {
   return(
     <div className="task">
-      <h3>{text} <FaTimes style={{color:'red', pointer:'cursor'}}/></h3>
+      <h3>{task.text} <FaTimes style={{color:'red', pointer:'cursor'}} onClick={() => onDelete(task.id)} /></h3>
       
     </div>
   )
