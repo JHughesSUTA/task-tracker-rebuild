@@ -17,7 +17,7 @@ function App(){
   useEffect(() =>{
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks()
-      console.table(tasksFromServer)
+      // console.table(tasksFromServer)
       setTasks(tasksFromServer)
     }
     getTasks()
@@ -30,6 +30,9 @@ function App(){
   }
   
   const deleteTask = (id) => {
+    fetch(`http://localhost:8000/tasks/${id}`, {
+      method: "DELETE"
+    })
     setTasks(tasks.filter(task => task.id !== id))
   }
 
