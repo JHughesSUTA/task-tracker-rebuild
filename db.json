@@ -5,6 +5,18 @@
       "text": "Doctors Appointment",
       "day": "Feb 5th at 2:30pm",
       "reminder": true
+    },
+    {
+      "text": "Take Banjo out",
+      "day": "5pm",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "practice piano",
+      "day": "6pm",
+      "reminder": true,
+      "id": 3
     }
   ]
 }
