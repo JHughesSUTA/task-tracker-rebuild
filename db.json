@@ -8,9 +8,9 @@
     },
     {
       "id": 2,
-      "text": "Meeting at School",
-      "day": "Feb 6th at 1:30 pm",
-      "reminder": true
+      "text": "hurr cut",
+      "day": "Feb 9th at 2:30pm",
+      "reminder": false
     }
   ]
 }
