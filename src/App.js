@@ -1,8 +1,10 @@
 import './index.css'
 import { useState, useEffect } from 'react'
+// import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import Footer from './components/Footer'
 
 function App(){
   const [showAddTask, setShowAddTask] = useState(true)
@@ -73,6 +75,7 @@ function App(){
       />
       {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : <p>You have nothing to do!</p>}
+      < Footer />
     </div>
   );
 }
