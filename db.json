@@ -9,7 +9,7 @@
     {
       "text": "Take the dog out",
       "day": "soon",
-      "reminder": false,
+      "reminder": true,
       "id": 2
     }
   ]

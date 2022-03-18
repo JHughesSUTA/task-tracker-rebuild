@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 const Footer = () => {
   return (
-    <a href="#">about</a>
+    <Link to="/about">about</Link>
   )
 }
 
