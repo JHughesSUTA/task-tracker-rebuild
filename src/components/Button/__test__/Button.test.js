@@ -8,4 +8,6 @@ describe("button attributes", () => {
 
     expect(buttonElement).toBeInTheDocument()
   })
+
+  // test button color matches prop
 })

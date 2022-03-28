@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
-function Header({ title }) {
+function Header({ title, handleClick }) {
   return (
     <div className="header">
       <h1>{title}</h1>
-      <Button text={"Add"} />
+      <Button text={"Add"} color="green" handleClick={handleClick}/>
     </div>
   )
 }
