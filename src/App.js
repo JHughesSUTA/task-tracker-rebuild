@@ -24,14 +24,17 @@ function App(){
   }
 
   const deleteTask = (id) => {
-    // console.log('clicked')
     setTasks(tasks.filter(task => task.id !== id))
+  }
+
+  const setReminder = (id) => {
+    setTasks(tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task))
   }
 
   return (
       <div className="container">
         <Header handleClick={handleClick} />
-        <Tasks tasks={tasks} onDelete={deleteTask} />
+        {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} setReminder={setReminder} /> : <p>There are no tasks left</p>}
       </div>
   );
 }
