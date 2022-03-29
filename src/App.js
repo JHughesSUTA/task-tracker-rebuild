@@ -24,6 +24,13 @@ function App(){
     console.log("clickity click")
   }
 
+  const addTask = (newTask) => {
+    const id = Math.floor(Math.random() * 5000) + 1
+    newTask = { id: id, ...newTask }
+    console.log(newTask)
+    setTasks([...tasks, newTask])
+  }
+
   const deleteTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id))
   }
@@ -35,7 +42,7 @@ function App(){
   return (
       <div className="container">
         <Header handleClick={handleClick} />
-        <AddTask />
+        <AddTask addTask={addTask} />
         {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} setReminder={setReminder} /> : <p>There are no tasks left</p>}
       </div>
   );

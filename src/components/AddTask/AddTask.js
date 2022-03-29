@@ -1,21 +1,60 @@
-function AddTask() {
+import { useState } from 'react'
+
+function AddTask({ addTask }) {
+  const [text, setText] = useState('')
+  const [day, setDay] = useState('')
+  const [reminder, setReminder] = useState(false)
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    if (text === '') {
+      alert('Please enter task text')
+      return
+    }
+
+    addTask({ text, day, reminder })
+
+    setText('')
+    setDay('')
+    setReminder(false)
+  }
+
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={e => onSubmit(e)}>
       <div className="form-control">
-        <label>Text</label>        
-        <input type="text" placeholder={"add text"} />
+        <label>Text</label>
+        <input
+          type="text"
+          placeholder={"add text"}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
       </div>
       <div className="form-control">
-        <label>Day</label>        
-        <input type="text" placeholder={"add day"} />
+        <label>Day</label>
+        <input
+          type="text"
+          placeholder={"add day"}
+          value={day}
+          onChange={(e) => setDay(e.target.value)}
+        />
       </div>
       <div className="form-control form-control-check">
         <label>Set Reminder</label>
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          checked={reminder}
+          onChange={(e) => setReminder(e.currentTarget.checked)}
+        />
       </div>
-      <input type="submit" className="btn btn-block" />
+      <input
+        type="submit"
+        value="Save Task"
+        className="btn btn-block"
+      />
     </form>
-  )
+  );
 }
 
 export default AddTask
