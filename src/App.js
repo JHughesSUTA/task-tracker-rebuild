@@ -23,10 +23,15 @@ function App(){
     console.log("clickity click")
   }
 
+  const deleteTask = (id) => {
+    // console.log('clicked')
+    setTasks(tasks.filter(task => task.id !== id))
+  }
+
   return (
       <div className="container">
         <Header handleClick={handleClick} />
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onDelete={deleteTask} />
       </div>
   );
 }
