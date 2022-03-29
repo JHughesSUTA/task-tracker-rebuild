@@ -1,11 +1,15 @@
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
-function Header({ title, handleClick }) {
+function Header({ title, toggleShowAddTask, showAddTask }) {
   return (
     <div className="header">
       <h1>{title}</h1>
-      <Button text={"Add"} color="green" handleClick={handleClick}/>
+      <Button 
+        text={showAddTask ? "Close" : "Add"}
+        color={showAddTask ? "red" : "green"}
+        handleClick={toggleShowAddTask}
+      />
     </div>
   )
 }

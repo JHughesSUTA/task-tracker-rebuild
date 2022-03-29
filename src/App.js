@@ -5,6 +5,7 @@ import Tasks from './components/Tasks/Tasks';
 import AddTask from './components/AddTask/AddTask';
 
 function App(){
+  const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -20,15 +21,13 @@ function App(){
     },
   ]);
 
-  const handleClick = () => {
-    console.log("clickity click")
+  const toggleShowAddTask = () => {
+    setShowAddTask(!showAddTask)
   }
 
   const addTask = (newTask) => {
     const id = Math.floor(Math.random() * 5000) + 1
     newTask = { id: id, ...newTask }
-    console.log(newTask)
-    setTasks([...tasks, newTask])
   }
 
   const deleteTask = (id) => {
@@ -41,8 +40,8 @@ function App(){
 
   return (
       <div className="container">
-        <Header handleClick={handleClick} />
-        <AddTask addTask={addTask} />
+        <Header toggleShowAddTask={toggleShowAddTask} showAddTask={showAddTask} />
+        {showAddTask && <AddTask addTask={addTask} />}
         {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} setReminder={setReminder} /> : <p>There are no tasks left</p>}
       </div>
   );
