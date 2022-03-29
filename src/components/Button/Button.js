@@ -12,4 +12,8 @@ Button.propTypes = {
   handleClick: PropTypes.func,
 }
 
+Button.defaultProps = {
+  color: "black",
+}
+
 export default Button
