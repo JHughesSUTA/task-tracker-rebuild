@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import './index.css'
 import Header from './components/Header/Header'
 import Tasks from './components/Tasks/Tasks';
@@ -98,7 +98,7 @@ function App(){
               </>
             }
           />
-          <Route path="about" element={<About />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
       </div>

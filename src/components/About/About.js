@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom'
+
 function About() {
   return (
     <div className="about">
       <h4>version 1.0</h4>
-      <a href="/">Go Back</a>
+      <Link to="/">Go Back</Link>
     </div>
   )
 }

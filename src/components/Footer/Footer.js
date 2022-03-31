@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
     <div className="footer">
-      <a href="/about">About</a>
+      <Link to="/about">About</Link>
     </div>
   )
 }
